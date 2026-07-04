@@ -1,0 +1,39 @@
+plugins {
+    id("fabric-loom") version "1.8.13"
+}
+
+dependencies {
+    minecraft("com.mojang:minecraft:${project.minecraft_version}")
+    mappings(loom.officialMojangMappings())
+    modImplementation("net.fabricmc:fabric-loader:${project.fabric_loader_version}")
+    compileOnly("net.fabricmc:sponge-mixin:0.15.4+mixin.0.8.7")
+}
+
+loom {
+    runs {
+        client {
+            client()
+        }
+    }
+    mixin {
+        useLegacyMixinAp = false
+    }
+}
+
+processResources {
+    def props = [
+        mod_id                : project.mod_id,
+        mod_name              : project.mod_name,
+        version               : project.mod_version,
+        mod_description       : project.mod_description,
+        mod_authors           : project.mod_authors,
+        mod_license           : project.mod_license,
+        minecraft_version     : project.minecraft_version,
+        fabric_loader_version : project.fabric_loader_version
+    ]
+    inputs.properties props
+
+    filesMatching("fabric.mod.json") {
+        expand props
+    }
+}

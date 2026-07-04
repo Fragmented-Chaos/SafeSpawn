@@ -1,0 +1,25 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${mod_description}",
+    "authors": ["${mod_authors}"],
+    "contact": {
+        "homepage": "https://modrinth.com/mod/safespawn",
+        "sources": "https://github.com/Fragmented-Chaos/SafeSpawn",
+        "issues": "https://github.com/Fragmented-Chaos/SafeSpawn/issues"
+    },
+    "license": "${mod_license}",
+    "icon": "assets/safespawn/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": ["com.fragmentedchaos.safespawn.SafeSpawn"]
+    },
+    "mixins": ["safespawn.mixins.json"],
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "minecraft": ">=${minecraft_version} <=1.21.11",
+        "java": ">=21"
+    }
+}
