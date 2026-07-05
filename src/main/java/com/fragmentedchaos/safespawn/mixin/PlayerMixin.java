@@ -1,12 +1,10 @@
 package com.fragmentedchaos.safespawn.mixin;
 
-import com.fragmentedchaos.safespawn.SafeSpawnConfig;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ClientInformation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,9 +17,5 @@ public abstract class PlayerMixin {
     private void onConstructed(MinecraftServer server, ServerLevel level,
                                 GameProfile gameProfile, ClientInformation clientInformation,
                                 CallbackInfo ci) {
-        // 新 ServerPlayer 实例即获得无敌，具体持续时间由 restoreFrom 覆盖
-        if (SafeSpawnConfig.enableLoginImmunity || SafeSpawnConfig.enableRespawnImmunity) {
-            ((Entity) (Object) this).invulnerableTime = SafeSpawnConfig.invulnerableTicks;
-        }
     }
 }
