@@ -21,6 +21,6 @@
 invulnerableTicks=60
 # 是否在死亡重生时启用无敌（true/false）
 enableRespawnImmunity=true
-# 是否在登录/跨维度传送时启用无敌（true/false）
+# 是否在登录（true/false）
 enableLoginImmunity=true
 ```
