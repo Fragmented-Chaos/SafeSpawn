@@ -43,7 +43,7 @@ public final class SafeSpawnConfig {
                         + "invulnerableTicks=60\n"
                         + "# enableRespawnImmunity: grant immunity after death respawn\n"
                         + "enableRespawnImmunity=true\n"
-                        + "# enableLoginImmunity: grant immunity on login / dimension change\n"
+                        + "# enableLoginImmunity: grant immunity on login\n"
                         + "enableLoginImmunity=true\n";
                 Files.writeString(path, content, StandardCharsets.UTF_8);
                 System.out.println("[SafeSpawn] Created default config: " + path.toAbsolutePath());
